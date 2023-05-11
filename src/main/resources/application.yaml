@@ -1,0 +1,37 @@
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ems?characterEncoding=UTF-8
+    username: root
+    password: root123
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+
+
+
+server:
+  servlet:
+    context-path: /ems  #设置项目名称
+    jsp:
+      init-parameters:
+        development: true #开启JSP页面热部署
+mybatis:
+  mapper-locations: classpath:com/renjun/ems/mapper/*.xml  #mapper配置文件路径
+  type-aliases-package: com.renjun.ems.entity #包下的所有文件都有别名
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com.renjun.ems.mapper: debug #mybatis日志
+
+
+
+
+
